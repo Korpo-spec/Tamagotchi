@@ -67,29 +67,22 @@ namespace Tamagotchi
         }
 
         public void Feed(){
-
+            hunger -= 1f;
         }
         
         public void Hi(){
-
+            Console.WriteLine(words[generator.Next(0, words.Count)]);
         }
 
         public void Teach(string word){
-
+            words.Add(word);
+            ReduceBoredom();
         }
 
-        public void PrintStats(){
-
-        }
-
-        public bool GetAlive(){
-
-            return isAlive;
-        }
 
         private void ReduceBoredom(){
 
-
+            boredom -= generator.Next(4, 20)/10;
             
         }
     }
