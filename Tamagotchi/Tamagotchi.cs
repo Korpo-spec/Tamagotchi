@@ -1,3 +1,4 @@
+using System.Threading;
 using System;
 using System.Collections.Generic;
 
@@ -12,10 +13,24 @@ namespace Tamagotchi
         static private Random generator = new Random();
         public string name;
 
+        public static Tamagotchi instance;
+
         public Tamagotchi(){
-            
+            instance = this;
+            Thread tickThread = new Thread(new ThreadStart(Tickloop));
+            tickThread.Start();
         }
 
+        public void Tickloop(){
+            while(Tamagotchi.instance.isAlive){
+
+                Tamagotchi.instance.Tick();
+
+                Thread.Sleep(500);
+
+            }
+            
+        }
         public void Tick(){
             boredom += 0.2f;
             hunger += 0.1f;
@@ -23,12 +38,13 @@ namespace Tamagotchi
             if(boredom > 10 || hunger > 10){
                 isAlive = false;
             }
+            Console.Clear();
             Draw(boredom, "Boredom");
             Draw(hunger, "Hunger");
         }
 
         void Draw(float input, string NameOfVariable){
-            Console.Clear();
+            
             Console.Write(NameOfVariable + ": ");
             Console.Write("[");
             float runs = (10f - input) * 5;

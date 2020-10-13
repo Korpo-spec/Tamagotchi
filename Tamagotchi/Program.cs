@@ -8,7 +8,7 @@ namespace Tamagotchi
         static void Main(string[] args)
         {
             Tamagotchi tama = new Tamagotchi();
-            tama.Tick();
+            
             
             
             TimeDelta();
