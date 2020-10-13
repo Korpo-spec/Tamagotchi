@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Threading;
+using System;
 
 namespace Tamagotchi
 {
@@ -6,7 +7,10 @@ namespace Tamagotchi
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Tamagotchi tama = new Tamagotchi();
+            tama.Tick();
+            
+            
             TimeDelta();
             Console.ReadLine();
         }
@@ -19,7 +23,7 @@ namespace Tamagotchi
             //Console.WriteLine(deltaTime);  // *float* output {0,2493331}
             //Console.WriteLine(time2.Ticks - time1.Ticks); // *int* output {2493331}
             time1 = time2;
-            meh++;
+            
             
             return deltaTime;
         }
