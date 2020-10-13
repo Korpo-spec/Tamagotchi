@@ -9,12 +9,16 @@ namespace Tamagotchi
         {
             Tamagotchi tama = new Tamagotchi();
             
-            
-            
+            while(tama.GetAlive()){
+
+                
+
+            }
+
             TimeDelta();
             Console.ReadLine();
         }
-        static float TimeSinceLastRun;
+        
         static public float TimeDelta(){
             DateTime time1 = DateTime.Now;
             DateTime time2 = DateTime.Now;

@@ -79,6 +79,10 @@ namespace Tamagotchi
             ReduceBoredom();
         }
 
+        public bool GetAlive(){
+            return isAlive;
+        }
+        
 
         private void ReduceBoredom(){
 
